@@ -3,17 +3,17 @@ kind: Deployment
 metadata:
   name: flask-app
 spec:
-  replicas: 3
+  replicas: 2
   selector:
     matchLabels:
-      app: flask-app
+      app.flask.server: node
   template:
     metadata:
       labels:
-        app: flask-app
+        app.flask.server: node
     spec:
       containers:
       - name: flask-app
         image: chuyeee/hello-flask
         ports:
-        - containerPort: 5000
+        - containerPort: 8080
